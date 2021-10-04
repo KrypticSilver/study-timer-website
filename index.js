@@ -1,21 +1,42 @@
-let startTimer = () => {
-    console.log("working");
-    var timeLeft = 200;
+function formatTime(seconds) {
 
-    while(timeLeft > 0) {
-        console.log("working1");
-        setInterval(() => {
+    hours = Math.floor(seconds / 3600);
+    mins = Math.floor(seconds / 60);
+    secs = (seconds % 60);
 
-            mins = Math.floor(2000 / 60);
-            secs = (2000 % 60);
+    if (hours > 0) {
+    time = `${hours}:${mins}:${seconds}`;
+    } else 
 
-            console.log("nice");
-            timer = document.getElementById("timer-display");
-            timer.innerHTML = `${mins}:${secs}`;
+    return time;
+}
 
-            timeleft -= 1;
 
-        }, 1000)
+function updateClock(timeWorked) {
+    return new Promise(resolve => setTimeout(() => {
+
+        
+        timer = document.getElementById("timer-display");
+        timer.innerHTML = `${mins}:${secs}`;
+
+        resolve();
+
+    }, 1000));
+}
+
+
+async function startTimer() {
+    var timeWorked = 0;
+
+    while(true) {
+
+        console.log("Time left:");
+        console.log(timeWorked);
+
+        await updateClock(timeWorked);
+
+        timeWorked += 1;
     };
 };
 
+console.log(formatTime(60));
