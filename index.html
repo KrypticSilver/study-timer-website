@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="assets/iconmonstr-time-23-240.png" />
+    <link rel="icon" href="assets/tab-timer-icon.png" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,7 +19,7 @@
         <li>
           <a href="/">
             <img
-              src="assets\iconmonstr-time-23-240.png"
+              src="assets\timer-icon.png"
               alt="Logo with clock that has a tick in the place of the hands."
             />
           </a>
@@ -30,10 +30,34 @@
       </ul>
     </header>
     <section id="content">
+      <section id="mode-panel">
+        <section id="work-tab" class="mode-tab">
+          <h2>WORK</h2>
+        </section>
+        <section id="short-break-tab" class="mode-tab">
+          <h2>SHORT BREAK</h2>
+        </section>
+        <section id="long-break-tab" class="mode-tab">
+          <h2>LONG BREAK</h2>
+        </section>
+      </section>
       <section id="timer">
-        <h2 id="timer-display">00:00</h2>
+        <section id="timer-label-container">
+          <h2 id="timer-display">00:25:00</h2>
+        </section>
         <button id="work-button" onclick="startTimer()">WORK</button>
-        <button id="break-button">BREAK</button>
+      </section>
+      <section id="control-panel">
+        <section id="title">
+          <h2>AUXILLARY</h2>
+        </section>
+        <section id="break-time">
+          <h2>
+            <p>FREE BREAK TIME</p>
+            <p>00:10:00</p>
+          </h2>
+        </section>
+        <button id="skip-button">START BREAK NOW</button>
       </section>
     </section>
     <footer></footer>
