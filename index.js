@@ -1,10 +1,10 @@
 var timing = false;
-var timeWorked = 25 * 60 - 1;
+var timeWorked = 25 * 60 * 1000;
 
-function formatTime(seconds) {
-    hours = Math.floor(seconds / 3600);
-    mins = Math.floor((seconds / 60) - (hours * 60));
-    secs = (seconds - (mins * 60) - (hours * 3600));
+function formatTime(ms) {
+    hours = Math.floor(ms / (3600 * 1000));
+    mins = Math.floor((ms / (60 * 1000)) - (hours * 60));
+    secs = Math.floor((ms / 1000) - (mins * 60) - (hours * 3600));
 
 
     if (hours < 99) {
@@ -19,49 +19,45 @@ function formatTime(seconds) {
         secs = "0" + secs;
     }
 
-    if (timing == true) {
-        time = `${hours}:${mins}:${secs}`;
-    }
+
+    time = `${hours}:${mins}:${secs}`;
 
     return time;
 }
 
-
-function updateClock(timeWorked) {
-    return new Promise(resolve => setTimeout(() => {
-        timer = document.getElementById("timer-display");
-        timer.innerHTML = formatTime(timeWorked);
-
-        resolve();
-
-    }, 1000));
+function delay(ms) {
+    return new Promise((resolve) => {setTimeout(() => {resolve();}, ms);});
 }
 
 
-async function startTimer() {
-    console.log("Heyy")
-    if (timing != true) {
 
+async function checkTimer() {
+    if (timing == false) {
         timing = true;
 
         workButton = document.getElementById("work-button");
         workButton.style.boxShadow = "none";
         workButton.style.transform = "translateY(8px)"
-        workButton.innerHTML = "STOP"
+        workButton.innerHTML = "PAUSE"
 
-        while (timing) {
+        while (timing == true) {
+            await delay(10);
 
-            console.log(timing);
+            timer = document.getElementById("timer-display");
+            timer.innerHTML = formatTime(timeWorked);
 
-            await updateClock(timeWorked);
-
-            timeWorked -= 1;
+            timeWorked -= 10;
+            console.log(timeWorked);
         };
-    } else {
+
+        console.log("function finished");
+
+    } else if (timing == true) {
+        timing = false;
+
         workButton.style.boxShadow = "0px 8px #2c3f63";
         workButton.style.transform = "translateY(0px)"
         workButton.innerHTML = "WORK"
 
-        timing = false;
     }
 };

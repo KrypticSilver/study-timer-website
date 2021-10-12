@@ -39,7 +39,7 @@ li:nth-child(2) {
 
 header h1 {
   grid-column: 2;
-  color: #00f0bc;
+  color: white;
   font-family: "Dosis", sans-serif;
   text-align: center;
   align-self: center;
@@ -179,31 +179,6 @@ section.mode-tab h2 {
   margin-top: 20px;
   text-align: center;
   align-self: center;
-  grid-row: 1;
-}
-
-#information {
-  grid-row: 2;
-  background-color: #02c99f;
-  width: 150px;
-  height: 120px;
-  align-self: center;
-  justify-self: center;
-  border-radius: 6px;
-  display: grid;
-}
-
-#information h3 {
-  align-self: center;
-}
-
-#information p {
-  color: white;
-  font-family: "Dosis", sans-serif;
-  font-size: 1.2rem;
-  text-align: center;
-  align-self: center;
-  font-weight: normal;
   grid-row: 1;
 }
 
