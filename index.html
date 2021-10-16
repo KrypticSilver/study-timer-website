@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap"
       rel="stylesheet"
     />
-    <title>Hogan Timer</title>
+    <title>Hogan Timer // 25:00 Left</title>
     <script src="index.js" defer></script>
   </head>
   <body>
@@ -26,6 +26,15 @@
         </li>
         <li>
           <h1>Hogan Timer</h1>
+        </li>
+        <li></li>
+        <li id="progress-heading">
+          <h2>Progress</h2>
+          <img src="assets/iconmonstr-chart-1-240.png" alt="Bar Chart icon">
+        </li>
+        <li id="settings-heading">
+          <h2>Settings</h2>
+          <img src="assets/iconmonstr-gear-1-240.png" alt="Settings icon">
         </li>
       </ul>
     </header>
@@ -45,19 +54,24 @@
         <section id="timer-label-container">
           <h2 id="timer-display">00:25:00</h2>
         </section>
-        <button id="work-button" onclick="checkTimer()">WORK</button>
+        <button id="timer-button" onclick="checkTimer()">WORK</button>
       </section>
       <section id="control-panel">
         <section id="title">
           <h2>AUXILLARY</h2>
         </section>
+        <section id="break-rate">
+          <h2>
+            <p>BREAK RATE:</p>  
+            <p>2 mins / 10 mins</p></h2>
+        </section>
         <section id="break-time">
           <h2>
             <p>FREE BREAK TIME</p>
-            <p>00:10:00</p>
+            <p id="break-display">00:10:00</p>
           </h2>
         </section>
-        <button id="skip-button">START BREAK NOW</button>
+        <button id="break-button"  onclick="checkAuxillaryBreak()">START BREAK NOW</button>
       </section>
     </section>
     <footer></footer>
